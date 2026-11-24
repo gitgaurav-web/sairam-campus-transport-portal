@@ -65,15 +65,19 @@ The **Central Transport & Vehicle Reservation Portal** is an enterprise-grade in
 
 You can switch between institutional roles at any time using the active persona dropdown in the top navigation bar:
 
-| Role | Persona Name | Designation | Responsibility |
+| Role | Persona Name | Designation | Email & Contact |
 |---|---|---|---|
-| `TRANSPORT_OFFICER` | Dr. R. Rajendran | Fleet Superintendent | Central scheduling, driver roster, vehicle conflict resolution |
-| `HOD` | Dr. C. Valarmathi | Head of Dept - CSE | Department requisition approvals & budget endorsement |
-| `FACULTY` | Prof. K. Arunkumar | Mech IV Coordinator | Submitting vehicle requisitions & headcount breakdown |
-| `SECURITY_OFFICER` | Havildar Subbaiah (Retd.) | Chief Security Warden | Gate Outward & Inward odometer logging & pass verification |
-| `ADMIN` | Dr. B. Shadaksharappa | Principal & Head of Inst. | Institutional oversight, audit reports, fleet analytics |
+| `SUPER_ADMIN` | Dr. B. Shadaksharappa (COO) | Chief Operating Officer / Executive Authority | `coo@sairamce.edu.in` |
+| `ADMIN` | Campus Transport Manager | Transport & Logistics Officer | `estate.admin@sairamce.edu.in` |
+| `HOD / FACULTY` | Dr. Smitha J A | Head of Department - CSE | `hod.cse@sairamce.edu.in` • 9626212446 |
+| `HOD / FACULTY` | Dr. HARI KRISHNA S | Head of Department - S&H | `hod.hs@sairamce.edu.in` • 9845373762 |
+| `FACULTY` | Prof. Amsa Lakshmi M | Faculty - CSE | `amsalakshmim.cse@sairamce.edu.in` • 8545848866 |
 
-*Demo Password for all accounts:* `admin123`
+*Official Passwords:*
+- CSE HOD (`hod.cse@sairamce.edu.in`): `faculty123`
+- S&H HOD (`hod.hs@sairamce.edu.in`): `Hari@123`
+- CSE Faculty (`amsalakshmim.cse@sairamce.edu.in`): `faculty123`
+- Admin & Super Admin accounts: `password123`
 
 ---
 

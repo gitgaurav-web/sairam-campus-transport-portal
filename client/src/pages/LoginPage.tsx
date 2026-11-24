@@ -143,7 +143,8 @@ export const LoginPage: React.FC = () => {
       roleBadge: 'SUPER ADMIN',
       badgeColor: 'bg-purple-900/50 text-purple-300 border-purple-700/60',
       icon: '👑',
-      desc: 'Master fleet executive privileges, driver roster & policy management',
+      desc: 'Master fleet executive privileges & policy management',
+      pass: 'password123',
     },
     {
       roleTitle: 'Transport Logistics Admin',
@@ -152,25 +153,38 @@ export const LoginPage: React.FC = () => {
       roleBadge: 'ADMIN',
       badgeColor: 'bg-blue-900/50 text-blue-300 border-blue-700/60',
       icon: '🚌',
-      desc: 'Vehicle requisition approval, driver assignment & Gate Pass clearance',
+      desc: 'Requisition approval, vehicle & driver allocation',
+      pass: 'password123',
     },
     {
-      roleTitle: 'HOD / Faculty Traveling',
-      name: 'Dr. C. Valarmathi (HOD CSE)',
+      roleTitle: 'HOD - Computer Science (CSE)',
+      name: 'Dr. Smitha J A',
       email: 'hod.cse@sairamce.edu.in',
-      roleBadge: 'FACULTY',
+      roleBadge: 'HOD / FACULTY',
       badgeColor: 'bg-emerald-900/50 text-emerald-300 border-emerald-700/60',
       icon: '🎓',
-      desc: 'Book campus buses/cars for industrial visits, hackathons & symposiums',
+      desc: 'Mob: 9626212446 • CSE Department Head',
+      pass: 'faculty123',
     },
     {
-      roleTitle: 'Faculty Coordinator',
-      name: 'Prof. R. Anand (ECE)',
-      email: 'faculty.ece@sairamce.edu.in',
+      roleTitle: 'HOD - Science & Humanities (S&H)',
+      name: 'Dr. HARI KRISHNA S',
+      email: 'hod.hs@sairamce.edu.in',
+      roleBadge: 'HOD / FACULTY',
+      badgeColor: 'bg-teal-900/50 text-teal-300 border-teal-700/60',
+      icon: '🔬',
+      desc: 'Mob: 9845373762 • S&H Department Head',
+      pass: 'Hari@123',
+    },
+    {
+      roleTitle: 'CSE Faculty',
+      name: 'Prof. Amsa Lakshmi M',
+      email: 'amsalakshmim.cse@sairamce.edu.in',
       roleBadge: 'FACULTY',
       badgeColor: 'bg-cyan-900/50 text-cyan-300 border-cyan-700/60',
-      icon: '🚗',
-      desc: 'Airport pickup & official faculty travel reservations',
+      icon: '👩‍🏫',
+      desc: 'Mob: 8545848866 • Faculty Reservations',
+      pass: 'faculty123',
     },
   ];
 
@@ -385,6 +399,10 @@ export const LoginPage: React.FC = () => {
                     {persona.name}
                   </p>
                   <p className="text-[10px] text-slate-400 truncate">{persona.email}</p>
+                  <div className="flex items-center justify-between text-[9px] text-slate-400 pt-1 mt-1 border-t border-slate-800/60">
+                    <span className="text-slate-400 truncate">{persona.desc}</span>
+                    <span className="text-amber-400 font-mono font-bold shrink-0 ml-1">🔑 {persona.pass}</span>
+                  </div>
                 </button>
               ))}
             </div>

@@ -36,11 +36,11 @@ export async function ensureDatabaseInitialized(): Promise<void> {
       departments[dept.code] = created;
     }
 
-    // 2. Default Administrative & Faculty Accounts
     const salt = await bcrypt.genSalt(10);
     const superPasswordHash = await bcrypt.hash('superadmin123', salt);
-    const adminPasswordHash = await bcrypt.hash('admin123', salt);
+    const adminPasswordHash = await bcrypt.hash('password123', salt);
     const facultyPasswordHash = await bcrypt.hash('faculty123', salt);
+    const hariPasswordHash = await bcrypt.hash('Hari@123', salt);
 
     // Official Sri Sairam Institutional Accounts
     await prisma.user.upsert({
@@ -84,12 +84,61 @@ export async function ensureDatabaseInitialized(): Promise<void> {
 
     await prisma.user.upsert({
       where: { email: 'hod.cse@sairamce.edu.in' },
-      update: { name: 'Dr. C. Valarmathi (HOD CSE)', role: 'FACULTY', status: 'ACTIVE' },
+      update: {
+        name: 'Dr. Smitha J A',
+        role: 'FACULTY',
+        status: 'ACTIVE',
+        phone: '9626212446',
+        passwordHash: facultyPasswordHash,
+        departmentId: departments['CSE']?.id,
+      },
       create: {
-        name: 'Dr. C. Valarmathi (HOD CSE)',
+        name: 'Dr. Smitha J A',
         email: 'hod.cse@sairamce.edu.in',
         passwordHash: facultyPasswordHash,
-        phone: '+91 98765 00012',
+        phone: '9626212446',
+        departmentId: departments['CSE']?.id,
+        role: 'FACULTY',
+        status: 'ACTIVE',
+      },
+    });
+
+    await prisma.user.upsert({
+      where: { email: 'hod.hs@sairamce.edu.in' },
+      update: {
+        name: 'Dr. HARI KRISHNA S',
+        role: 'FACULTY',
+        status: 'ACTIVE',
+        phone: '9845373762',
+        passwordHash: hariPasswordHash,
+        departmentId: departments['S&H']?.id,
+      },
+      create: {
+        name: 'Dr. HARI KRISHNA S',
+        email: 'hod.hs@sairamce.edu.in',
+        passwordHash: hariPasswordHash,
+        phone: '9845373762',
+        departmentId: departments['S&H']?.id,
+        role: 'FACULTY',
+        status: 'ACTIVE',
+      },
+    });
+
+    await prisma.user.upsert({
+      where: { email: 'amsalakshmim.cse@sairamce.edu.in' },
+      update: {
+        name: 'Prof. Amsa Lakshmi M',
+        role: 'FACULTY',
+        status: 'ACTIVE',
+        phone: '8545848866',
+        passwordHash: facultyPasswordHash,
+        departmentId: departments['CSE']?.id,
+      },
+      create: {
+        name: 'Prof. Amsa Lakshmi M',
+        email: 'amsalakshmim.cse@sairamce.edu.in',
+        passwordHash: facultyPasswordHash,
+        phone: '8545848866',
         departmentId: departments['CSE']?.id,
         role: 'FACULTY',
         status: 'ACTIVE',

@@ -19,8 +19,10 @@ async function main() {
   await prisma.systemSetting.deleteMany();
 
   const salt = await bcrypt.genSalt(10);
-  const passwordHash = await bcrypt.hash('admin123', salt);
-  const superPasswordHash = await bcrypt.hash('superadmin123', salt);
+  const passwordHash = await bcrypt.hash('password123', salt);
+  const superPasswordHash = await bcrypt.hash('password123', salt);
+  const facultyPasswordHash = await bcrypt.hash('faculty123', salt);
+  const shPasswordHash = await bcrypt.hash('Hari@123', salt);
 
   // 1. Departments
   const deptCse = await prisma.department.create({
@@ -55,6 +57,15 @@ async function main() {
       name: 'Electronics & Communication Engineering',
       code: 'ECE',
       description: 'Department of Electronics & Communication',
+      status: 'ACTIVE',
+    },
+  });
+
+  const deptSH = await prisma.department.create({
+    data: {
+      name: 'Science & Humanities',
+      code: 'S&H',
+      description: 'Department of Science & Humanities (First Year)',
       status: 'ACTIVE',
     },
   });
@@ -99,7 +110,7 @@ async function main() {
     data: {
       name: 'Prof. K. Arunkumar',
       email: 'faculty.mech@sairamce.edu.in',
-      passwordHash,
+      passwordHash: facultyPasswordHash,
       phone: '9791443322',
       departmentId: deptMech.id,
       role: 'FACULTY',
@@ -109,10 +120,34 @@ async function main() {
 
   const facultyCse = await prisma.user.create({
     data: {
-      name: 'Dr. C. Valarmathi',
+      name: 'Dr. Smitha J A',
       email: 'hod.cse@sairamce.edu.in',
-      passwordHash,
-      phone: '9443221100',
+      passwordHash: facultyPasswordHash,
+      phone: '9626212446',
+      departmentId: deptCse.id,
+      role: 'FACULTY',
+      status: 'ACTIVE',
+    },
+  });
+
+  const facultySH = await prisma.user.create({
+    data: {
+      name: 'Dr. HARI KRISHNA S',
+      email: 'hod.hs@sairamce.edu.in',
+      passwordHash: shPasswordHash,
+      phone: '9845373762',
+      departmentId: deptSH.id,
+      role: 'FACULTY',
+      status: 'ACTIVE',
+    },
+  });
+
+  const facultyAmsa = await prisma.user.create({
+    data: {
+      name: 'Prof. Amsa Lakshmi M',
+      email: 'amsalakshmim.cse@sairamce.edu.in',
+      passwordHash: facultyPasswordHash,
+      phone: '8545848866',
       departmentId: deptCse.id,
       role: 'FACULTY',
       status: 'ACTIVE',
@@ -123,7 +158,7 @@ async function main() {
     data: {
       name: 'Gaurav Sharma',
       email: 'student.lead@sairamce.edu.in',
-      passwordHash,
+      passwordHash: facultyPasswordHash,
       phone: '9876543210',
       departmentId: deptAiml.id,
       role: 'USER',
@@ -266,9 +301,9 @@ async function main() {
       eventName: 'Infosys Mysore Campus Industrial Visit for 3rd Year CSE',
       purpose: 'Industrial Visit for CSE department students',
       description: 'Students visiting Infosys Development Center Mysore',
-      requestedBy: 'Dr. C. Valarmathi',
-      coordinatorName: 'Dr. C. Valarmathi',
-      contactNumber: '9443221100',
+      requestedBy: 'Dr. Smitha J A',
+      coordinatorName: 'Dr. Smitha J A',
+      contactNumber: '9626212446',
       email: 'hod.cse@sairamce.edu.in',
       pickupLocation: 'Sri Sairam College Campus Gate 1',
       dropLocation: 'Infosys Limited, Hebbal Electronic City, Mysuru, Karnataka',
