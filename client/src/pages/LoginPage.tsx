@@ -137,23 +137,23 @@ export const LoginPage: React.FC = () => {
 
   const sairamPersonas = [
     {
-      roleTitle: 'Transport Officer / Super Admin',
-      name: 'Dr. B. Shadaksharappa (COO)',
-      email: 'coo@sairamce.edu.in',
+      roleTitle: 'Transport Superintendent / Super Admin',
+      name: 'Campus Transport Manager',
+      email: 'estate.admin@sairamce.edu.in',
       roleBadge: 'SUPER ADMIN',
       badgeColor: 'bg-purple-900/50 text-purple-300 border-purple-700/60',
       icon: '👑',
-      desc: 'Master fleet executive privileges & policy management',
+      desc: 'Mob: 9840112233 • Fleet Superintendent & Master Admin',
       pass: 'password123',
     },
     {
-      roleTitle: 'Transport Logistics Admin',
-      name: 'Campus Transport Manager',
-      email: 'estate.admin@sairamce.edu.in',
+      roleTitle: 'Transport & Logistics Admin',
+      name: 'Arun Kumar R',
+      email: 'coo@sairamce.edu.in',
       roleBadge: 'ADMIN',
       badgeColor: 'bg-blue-900/50 text-blue-300 border-blue-700/60',
       icon: '🚌',
-      desc: 'Requisition approval, vehicle & driver allocation',
+      desc: 'Mob: 9840998877 • Fleet Operations & Clearance',
       pass: 'password123',
     },
     {
@@ -177,13 +177,13 @@ export const LoginPage: React.FC = () => {
       pass: 'Hari@123',
     },
     {
-      roleTitle: 'CSE Faculty',
+      roleTitle: 'CSE Faculty Coordinator',
       name: 'Prof. Amsa Lakshmi M',
       email: 'amsalakshmim.cse@sairamce.edu.in',
       roleBadge: 'FACULTY',
       badgeColor: 'bg-cyan-900/50 text-cyan-300 border-cyan-700/60',
       icon: '👩‍🏫',
-      desc: 'Mob: 8545848866 • Faculty Reservations',
+      desc: 'Mob: 8545848866 • Faculty Coordinator',
       pass: 'faculty123',
     },
   ];
@@ -202,11 +202,13 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  const handleSelectPersona = async (personaEmail: string) => {
+  const handleSelectPersona = async (persona: (typeof sairamPersonas)[0]) => {
+    setEmail(persona.email);
+    setPassword(persona.pass);
     setError(null);
     setLoading(true);
     try {
-      await loginDemo(personaEmail);
+      await loginDemo(persona.email);
       navigate(redirect);
     } catch (err: any) {
       setError(err.message || 'Persona login failed');
@@ -385,7 +387,7 @@ export const LoginPage: React.FC = () => {
                 <button
                   key={persona.email}
                   type="button"
-                  onClick={() => handleSelectPersona(persona.email)}
+                  onClick={() => handleSelectPersona(persona)}
                   disabled={loading}
                   className="p-2.5 rounded-xl border border-slate-800/90 hover:border-blue-500/80 bg-[#131E32]/70 hover:bg-[#18263E] text-left transition group cursor-pointer"
                 >

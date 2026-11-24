@@ -45,13 +45,14 @@ export async function ensureDatabaseInitialized(): Promise<void> {
     // Official Sri Sairam Institutional Accounts
     await prisma.user.upsert({
       where: { email: 'coo@sairamce.edu.in' },
-      update: { name: 'Dr. B. Shadaksharappa (COO)', role: 'SUPER_ADMIN', status: 'ACTIVE' },
+      update: { name: 'Arun Kumar R', role: 'ADMIN', status: 'ACTIVE', phone: '9840998877' },
       create: {
-        name: 'Dr. B. Shadaksharappa (COO)',
+        name: 'Arun Kumar R',
         email: 'coo@sairamce.edu.in',
-        passwordHash: superPasswordHash,
-        phone: '+91 98765 00010',
-        role: 'SUPER_ADMIN',
+        passwordHash: adminPasswordHash,
+        phone: '9840998877',
+        departmentId: departments['TRANSPORT']?.id || departments['ADMIN']?.id,
+        role: 'ADMIN',
         status: 'ACTIVE',
       },
     });
@@ -71,13 +72,14 @@ export async function ensureDatabaseInitialized(): Promise<void> {
 
     await prisma.user.upsert({
       where: { email: 'estate.admin@sairamce.edu.in' },
-      update: { name: 'Campus Transport Manager', role: 'ADMIN', status: 'ACTIVE' },
+      update: { name: 'Campus Transport Manager', role: 'SUPER_ADMIN', status: 'ACTIVE', phone: '9840112233' },
       create: {
         name: 'Campus Transport Manager',
         email: 'estate.admin@sairamce.edu.in',
-        passwordHash: adminPasswordHash,
-        phone: '+91 98765 00011',
-        role: 'ADMIN',
+        passwordHash: superPasswordHash,
+        phone: '9840112233',
+        departmentId: departments['TRANSPORT']?.id || departments['ADMIN']?.id,
+        role: 'SUPER_ADMIN',
         status: 'ACTIVE',
       },
     });

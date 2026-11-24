@@ -139,7 +139,7 @@ async function main() {
   });
   console.log('Synced CSE Faculty:', cseFaculty.name, '|', cseFaculty.email, '|', cseFaculty.phone);
 
-  // 4. Ensure Estate Admin exists
+  // 4. Ensure Estate Admin exists (SUPER_ADMIN)
   const estateAdmin = await prisma.user.upsert({
     where: { email: 'estate.admin@sairamce.edu.in' },
     update: {
@@ -147,7 +147,7 @@ async function main() {
       phone: '9840112233',
       passwordHash: admin123Hash,
       departmentId: adminDept.id,
-      role: 'ADMIN',
+      role: 'SUPER_ADMIN',
       status: 'ACTIVE',
     },
     create: {
@@ -156,34 +156,34 @@ async function main() {
       phone: '9840112233',
       passwordHash: admin123Hash,
       departmentId: adminDept.id,
-      role: 'ADMIN',
-      status: 'ACTIVE',
-    },
-  });
-  console.log('Synced Estate Admin:', estateAdmin.name, '|', estateAdmin.email);
-
-  // 5. Ensure Super Admin (COO)
-  const cooAdmin = await prisma.user.upsert({
-    where: { email: 'coo@sairamce.edu.in' },
-    update: {
-      name: 'Dr. B. Shadaksharappa (COO)',
-      phone: '9840998877',
-      passwordHash: admin123Hash,
-      departmentId: adminDept.id,
       role: 'SUPER_ADMIN',
       status: 'ACTIVE',
     },
+  });
+  console.log('Synced Estate Admin (SUPER_ADMIN):', estateAdmin.name, '|', estateAdmin.email);
+
+  // 5. Ensure COO Admin (ADMIN)
+  const cooAdmin = await prisma.user.upsert({
+    where: { email: 'coo@sairamce.edu.in' },
+    update: {
+      name: 'Arun Kumar R',
+      phone: '9840998877',
+      passwordHash: admin123Hash,
+      departmentId: adminDept.id,
+      role: 'ADMIN',
+      status: 'ACTIVE',
+    },
     create: {
-      name: 'Dr. B. Shadaksharappa (COO)',
+      name: 'Arun Kumar R',
       email: 'coo@sairamce.edu.in',
       phone: '9840998877',
       passwordHash: admin123Hash,
       departmentId: adminDept.id,
-      role: 'SUPER_ADMIN',
+      role: 'ADMIN',
       status: 'ACTIVE',
     },
   });
-  console.log('Synced Super Admin:', cooAdmin.name, '|', cooAdmin.email);
+  console.log('Synced COO Admin (ADMIN):', cooAdmin.name, '|', cooAdmin.email);
 
   console.log('\n=== CURRENT DATABASE USER LIST ===');
   const allUsers = await prisma.user.findMany({

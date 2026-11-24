@@ -67,8 +67,8 @@ You can switch between institutional roles at any time using the active persona 
 
 | Role | Persona Name | Designation | Email & Contact |
 |---|---|---|---|
-| `SUPER_ADMIN` | Dr. B. Shadaksharappa (COO) | Chief Operating Officer / Executive Authority | `coo@sairamce.edu.in` |
-| `ADMIN` | Campus Transport Manager | Transport & Logistics Officer | `estate.admin@sairamce.edu.in` |
+| `SUPER_ADMIN` | Campus Transport Manager | Transport Superintendent & Master Admin | `estate.admin@sairamce.edu.in` • 9840112233 |
+| `ADMIN` | Arun Kumar R | Campus Transport & Logistics Admin | `coo@sairamce.edu.in` • 9840998877 |
 | `HOD / FACULTY` | Dr. Smitha J A | Head of Department - CSE | `hod.cse@sairamce.edu.in` • 9626212446 |
 | `HOD / FACULTY` | Dr. HARI KRISHNA S | Head of Department - S&H | `hod.hs@sairamce.edu.in` • 9845373762 |
 | `FACULTY` | Prof. Amsa Lakshmi M | Faculty - CSE | `amsalakshmim.cse@sairamce.edu.in` • 8545848866 |

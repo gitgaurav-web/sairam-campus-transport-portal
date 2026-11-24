@@ -86,22 +86,22 @@ async function main() {
     data: {
       name: 'Campus Transport Manager',
       email: 'estate.admin@sairamce.edu.in',
-      passwordHash,
+      passwordHash: superPasswordHash,
       phone: '9840112233',
       departmentId: deptAdmin.id,
-      role: 'ADMIN',
+      role: 'SUPER_ADMIN',
       status: 'ACTIVE',
     },
   });
 
   const superAdmin = await prisma.user.create({
     data: {
-      name: 'Dr. B. Shadaksharappa (COO)',
+      name: 'Arun Kumar R',
       email: 'coo@sairamce.edu.in',
-      passwordHash: superPasswordHash,
+      passwordHash,
       phone: '9840998877',
       departmentId: deptAdmin.id,
-      role: 'SUPER_ADMIN',
+      role: 'ADMIN',
       status: 'ACTIVE',
     },
   });
